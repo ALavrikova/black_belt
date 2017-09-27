@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Destination</title>
+</head>
+<body>
+	<h2>{{trip.destination}}</h2>
+	<p>Planned by: {{request.session.name}}</p>
+	<p>Description: {{trip.description}}</p>
+	<p>Travel date from: {{trip.start_date}}</p>
+	<p>Travel date to: {{trip.end_date}}</p>
+
+	<h3>Other users joining the trip:</h3>
+	<p>{{user.username}}</p>
+	<p>{{user.username}}</p>
+	<p>{{user.username}}</p>
+
+	<a href='/travels'>Home</a>
+	<a href='/'>Logout</a>	
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Travels</title>
+</head>
+<body>
+	<h2>Hello, {{request.session.name}}!</h2>
+</h3>Your trip schedule</h3>
+	<table>
+        <tr>
+          <th>Destination</th>
+          <th>Travel start date</th>
+          <th>Travel end date</th>
+          <th>Plan</th>
+        </tr>
+
+        {% for trip in trips %}
+        <tr>
+          <td><a href='/travels/{{trip.id}}'>{{trip.destination}}</a></td>
+          <td> {{trip.start_date}}</td>
+          <td>{{trip.end_date}}</td>
+          <td>{{trip.description}}</td>
+        </tr>
+        {% endfor %}   
+    </table>
+
+    <h3>Other's trip schedule</h3>
+    <table>
+        <tr>
+        	<th>Name</th>	
+        	<th>Destination</th>
+        	<th>Travel start date</th>
+        	<th>Travel end date</th>
+        	<th>Plan</th>
+        </tr>
+
+        {% for trip in trips %}
+        <tr>
+        	<td>{{user.name}}</td>	
+        	<td><a href='/travels/{{trip.id}}'>{{trip.destination}}</a></td>
+        	<td>{{trip.start_date}}</td>
+        	<td>{{trip.end_date}}</td>
+        	<td><a href='/travels/add'>Join</a></td>
+        	<!-- change to different url ->join the plan and stay on the same page -->
+        </tr>
+        {% endfor %}   
+    </table>
+
+    <a href='/travels/add'>Add travel plan</a><br>
+    <!-- change to different url to add plan to my travels -->
+
+    <a href='/'>Logout</a>
+
+</body>
+</html>

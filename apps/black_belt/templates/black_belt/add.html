@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Add a trip</h2>
+	<form action='/add_trip' method='POST'>
+		{% csrf_token %}
+		<p>Destination:</p><input type='text' name='destination'><br>
+		<p>Description:</p><input type='text' name='description'><br>	
+		<p>Travel date from:</p><input type='date' name="start_date"><br>
+		<p>Travel date to:</p><input type='date' name="end_date"><br>
+		<input type='submit' value='Add'>	
+	</form>
+
+	{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<a href='/travels'>Home</a>
+	<a href='/'>Logout</a>
+</body>
+</html>
